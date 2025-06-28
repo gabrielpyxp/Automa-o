@@ -1,124 +1,85 @@
-Automação Onitel - Instalação e Uso
-Este projeto automatiza a extração de relatórios de SLA do sistema Onitel, processa os dados e gera um dashboard interativo.
+# 🚀 Automação Onitel - Gestão de SLA
 
-🚀 Pré-requisitos
-Antes de começar, certifique-se de ter instalado:
+![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
+![Selenium](https://img.shields.io/badge/Selenium-4.0%2B-orange)
+![Flask](https://img.shields.io/badge/Flask-2.0%2B-lightgrey)
 
-Python 3.7+ (Download Python)
+Sistema automatizado para coleta, processamento e visualização de dados de SLA da plataforma Onitel.
 
-Google Chrome (Download Chrome)
+## 📦 Pré-requisitos
+- Python 3.7+
+- Google Chrome
+- Git (opcional)
 
-Git (Opcional - para versionamento) (Download Git)
+```bash
+# Dependências essenciais
+pip install selenium pandas flask openpyxl
+```
 
-🛠 Instalação
-1. Clone o repositório (ou baixe manualmente)
-bash
-git clone https://github.com/gabrielpyxp/Automa-o.git
-cd Automa-o
-2. Instale as dependências
-bash
-pip install -r requirements.txt
-(Caso não tenha o arquivo requirements.txt, instale manualmente:)
+## 🛠 Configuração
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/gabrielpyxp/Automa-o.git
+   cd Automa-o
+   ```
 
-bash
-pip install selenium webdriver-manager pandas openpyxl flask
-3. Configure o arquivo config.txt
-Edite o arquivo config.txt na pasta raiz do projeto com as datas no formato DD/MM/AAAA:
+2. **Configure as datas**:
+   Edite `config.txt` com o formato:
+   ```
+   DD/MM/AAAA  # Data inicial
+   DD/MM/AAAA  # Data final
+   ```
 
-text
-01/01/2025  
-31/12/2025
-(Data inicial e final para filtro do relatório)
-
-⚙️ Como Executar
-Opção 1: Via Launcher (Interface Gráfica)
-Execute o arquivo principal:
-
-bash
+## ▶️ Execução
+### Opção 1: Interface Gráfica
+```bash
 python launcher.py
-Siga os passos na janela que abrir
+```
 
-O sistema irá:
+### Opção 2: Terminal
+```bash
+python zap.py           # Coleta dados
+python criar_db.py      # Processa dados
+python app.py           # Inicia dashboard
+```
+Acesse: http://127.0.0.1:5000
 
-Baixar o relatório automaticamente
+## 🖥️ Dashboard Features
+| Funcionalidade       | Descrição                          |
+|----------------------|------------------------------------|
+| Filtro por SLA       | Adequado (≥90) ou Crítico (≤-90)   |
+| Destaque visual      | Alertas vermelhos para SLAs baixos |
+| Exportação           | Dados em SQLite e Excel            |
 
-Processar os dados
+## 📁 Estrutura de Arquivos
+```
+.
+├── app.py                # Servidor Flask
+├── criar_db.py           # Processamento de dados
+├── launcher.py           # Interface gráfica
+├── zap.py                # Automação web
+├── config.txt            # Configuração de datas
+├── requirements.txt      # Dependências
+├── downloads/            # Relatórios baixados
+├── templates/            # Páginas web
+│   └── index.html        # Dashboard HTML
+└── relatorios.db         # Banco de dados
+```
 
-Iniciar o dashboard Flask
+## 💻 Como Transformar em Executável
+```bash
+pyinstaller --onefile --windowed \
+--add-data "config.txt;." \
+--add-data "templates;templates" \
+launcher.py
+```
 
-Opção 2: Manual (Terminal)
-Execute o script de automação:
+## ❓ Suporte
+Encontrou problemas? [Abra uma issue](https://github.com/gabrielpyxp/Automa-o/issues) ou contate:
 
-bash
-python zap.py
-Processe os dados:
+✉️ gabrielrocha@onitel.com.br  
+🔗 [LinkedIn](https://www.linkedin.com/in/seu-perfil)
 
-bash
-python criar_db.py
-Inicie o servidor web:
+---
 
-bash
-python app.py
-Acesse o dashboard:
-Abra no navegador:
-
-text
-http://127.0.0.1:5000
-📊 Funcionalidades do Dashboard
-Filtros de SLA:
-
-✅ Adequado (≥ 90)
-
-❌ Crítico (≤ -90)
-
-📊 Todos (sem filtro)
-
-Destaque em vermelho para SLAs críticos
-
-Ordenação automática por piores SLAs
-
-🔧 Solução de Problemas
-1. Erro "No module named 'selenium'"
-bash
-pip install selenium webdriver-manager
-2. Download não concluído
-Verifique se o Chrome está instalado
-
-Confira a pasta downloads/ (deve ter permissão de escrita)
-
-3. Erro no push para o GitHub
-bash
-git branch -M main
-git push -u origin main
-📦 Como Criar um Executável (.exe)
-Instale o PyInstaller:
-
-bash
-pip install pyinstaller
-Gere o executável:
-
-bash
-pyinstaller --onefile --windowed --add-data "config.txt;." --add-data "templates;templates" launcher.py
-O arquivo estará em:
-
-text
-dist/launcher.exe
-📜 Estrutura do Projeto
-text
-Automa-o/
-├── launcher.py          # Interface gráfica
-├── zap.py               # Automação web
-├── criar_db.py          # Processamento de dados
-├── app.py               # Servidor Flask
-├── templates/           # Páginas HTML
-│   └── index.html
-├── downloads/           # Pasta de relatórios
-├── config.txt           # Datas para filtro
-└── relatorios.db        # Banco de dados gerado
-💡 Dicas Extras
-Agendamento: Use o Agendador de Tarefas (Windows) ou cron (Linux) para rodar automaticamente.
-
-Deploy: Hospede o Flask em serviços como PythonAnywhere ou Heroku para acesso remoto.
-
-Backup: Mantenha cópias da pasta downloads/ e relatorios.db.
-
+> **Nota:** Mantenha seu Chrome atualizado para compatibilidade com o WebDriver.
