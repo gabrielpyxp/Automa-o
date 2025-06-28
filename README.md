@@ -77,7 +77,7 @@ launcher.py
 ## ❓ Suporte
 Encontrou problemas? [Abra uma issue](https://github.com/gabrielpyxp/Automa-o/issues) ou contate:
 
-✉️ gabrielrocha@onitel.com.br  
+✉️ gabrieldealmeidarocha482@gmail.com
 🔗 [LinkedIn](https://www.linkedin.com/in/seu-perfil)
 
 ---
