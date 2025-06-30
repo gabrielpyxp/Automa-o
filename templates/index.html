@@ -62,7 +62,7 @@
                 tbody.empty();
                 
                 dados.forEach(item => {
-                    const slaClass = item.SLA <= -90 ? 'sla-negativo' : 
+                    const slaClass = item.SLA <= 90 ? 'sla-negativo' : 
                                    item.SLA >= 90 ? 'sla-positivo' : '';
                     
                     tbody.append(`
