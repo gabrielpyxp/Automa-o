@@ -110,9 +110,9 @@ def main():
             raise Exception("Falha ao preencher data final")
 
         # ─── Aplicar filtro ────────────────────────────────────────────────
-        btn_aplicar = wait.until(EC.element_to_be_clickable((By.ID, 'su_oss_chamado_apply_filter')))
-        driver.execute_script("arguments[0].click()", btn_aplicar)
-        time.sleep(2)
+        campo_int = wait.until(EC.presence_of_element_located((By.ID, 'su_oss_chamado_apply_filter')))
+        campo_int.send_keys("Aplicar" + Keys.RETURN)
+        time.sleep(1)
 
         # ─── Limpar pasta de download ──────────────────────────────────────
         for f in os.listdir(DOWNLOAD_FOLDER):

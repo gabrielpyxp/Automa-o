@@ -23,7 +23,7 @@ def get_data():
     if sla_filter == "positivo":
         query += " WHERE SLA >= 90"
     elif sla_filter == "negativo":
-        query += " WHERE SLA <= -90"
+        query += " WHERE SLA <= 90"
     elif sla_filter == "todos":
         pass  # Sem filtro adicional
     
