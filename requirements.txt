@@ -1,21 +1,25 @@
-# 📦 Dependências principais
-selenium==4.9.1
-webdriver-manager==3.8.6
-pandas==2.0.3
-openpyxl==3.1.2
-flask==2.3.2
+# 🚀 DEPENDÊNCIAS PRINCIPAIS (TESTADAS COM PYTHON 3.8+)
+selenium==4.18.1  # Versão mais recente estável
+webdriver-manager==4.0.0  # Atualizado para suporte ao Chrome 120+
+pandas==2.1.4    # Versão com melhor compatibilidade
+openpyxl==3.1.2  # Mantido por estabilidade com Excel
+flask==3.0.0     # Versão mais recente do Flask
 
-# 🔧 Dependências complementares
-sqlite3==2.6.0  # Normalmente já vem com Python
-tk==0.1.0  # Para a interface gráfica (já incluso na instalação padrão do Python)
+# 🔧 DEPENDÊNCIAS DE SISTEMA (PRÉ-REQUISITOS)
+numpy==1.26.2    # Necessário para o pandas
+cryptography==41.0.5  # Atualizado para segurança
 
-# 🛡️ Dependências de segurança
-cryptography==41.0.3
-
-# 📊 Para relatórios (caso precise exportar)
+# 📊 EXTRA (RELATÓRIOS/EXPORT)
 xlsxwriter==3.1.9
+pyodbc==5.1.0    # Caso precise conectar em bancos SQL
 
-# Notas:
-# - Versões testadas com Python 3.8+
-# - ChromeDriver é gerenciado automaticamente pelo webdriver-manager
-# - Para resetar: pip uninstall -y -r requirements.txt
+# 🛠️ FERRAMENTAS DE DESENVOLVIMENTO
+pip==23.3.1      # Garante pip atualizado
+setuptools==68.2.2
+wheel==0.41.3
+
+# NOTAS DE INSTALAÇÃO:
+# 1. Para Windows: Instale pré-requisitos do pandas
+#    https://pandas.pydata.org/docs/getting_started/install.html
+# 2. Em Linux/macOS: sudo apt install python3-dev gcc
+# 3. Problemas? Use: python -m pip install --ignore-installed -r requirements.txt
