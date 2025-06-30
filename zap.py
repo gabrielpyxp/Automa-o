@@ -77,9 +77,9 @@ def main():
         # ─── Login ─────────────────────────────────────────────────────────
         driver.get("https://gestao.onitel.com.br/app/login")
         wait.until(EC.presence_of_element_located((By.ID, 'email')))\
-            .send_keys("gabrielrocha@onitel.com.br" + Keys.RETURN)
+            .send_keys("" + Keys.RETURN)
         wait.until(EC.presence_of_element_located((By.ID, 'password')))\
-            .send_keys("Rocha@076" + Keys.RETURN)
+            .send_keys("" + Keys.RETURN)
         wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "vg-button#btn-enter-login"))).click()
         try:
             wait.until(EC.element_to_be_clickable(
