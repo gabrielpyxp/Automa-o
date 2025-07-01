@@ -16,7 +16,7 @@ def get_data():
     sla_filter = request.args.get('sla_filter')
     
     # Construir consulta base
-    query = "SELECT ID, NomeCliente, SLA, Abertura FROM relatorios"
+    query = "SELECT ID, NomeCliente, SLA, Abertura, Status FROM relatorios"
     params = []
     
     # Aplicar filtros

@@ -21,10 +21,11 @@ def main():
     
     # Selecionar e renomear colunas
     df = df.rename(columns={
-        'Cliente': 'NomeCliente',
-        'SLA': 'SLA',
-        'Abertura': 'Abertura'
-    })[['ID', 'NomeCliente', 'SLA', 'Abertura']]
+    'Cliente': 'NomeCliente',
+    'SLA': 'SLA',
+    'Abertura': 'Abertura',
+    'Status': 'Status'
+})[['ID', 'NomeCliente', 'SLA', 'Abertura', 'Status']]
     
     # Converter dados
     df['SLA'] = df['SLA'].apply(clean_sla)
